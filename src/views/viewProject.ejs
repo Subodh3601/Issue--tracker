@@ -15,6 +15,11 @@
             padding: 0;
         }
 
+        #detail-div {
+            background-color: lightblue;
+            width: 90%;
+        }
+
         h2 {
             text-align: center;
             margin-bottom: 10px;
@@ -371,29 +376,39 @@
 
 <body>
     <header>
+        <h2 class="welcome-heading">Issue Tracker App</h2>
         <nav>
             <div class="nav-left">
-                <h1>Issue Tracker</h1>
+
                 <a href="/" id="home-button">Home</a>
             </div>
         </nav>
+        <div class="button-group">
+            <form action="/projects/<%= project._id %>/delete" method="POST" class="delete-form">
+                <button type="submit" class="btn btn-danger">Delete Project</button>
+            </form>
+            <a href="/projects/<%= project._id %>/issues/new" class="btn btn-primary">Create Issue</a>
+
+        </div>
     </header>
 
 
     <div class="container scrollable">
         <h1 class="project-heading">Project Details</h1>
 
-        <h2 class="project-name">
-            <%= project.name %>
-        </h2>
-        <p class="project-info"><strong>Author:</strong>
-            <%= project.author %>
-        </p>
-        <p class="project-info"><strong>Description:</strong>
-            <%= project.description %>
-        </p>
-
-        <h3 class="section-heading">Issues:</h3>
+        <div id="detail-div">
+            <h2 class="project-name">
+                <%= project.name %>
+            </h2>
+            <p class="project-info"><strong>Author:</strong>
+                <%= project.author %>
+            </p>
+            <p class="project-info"><strong>Description:</strong>
+                <%= project.description %>
+            </p>
+        </div>
+        <p></p>
+        <h3 class="section-heading"><b>Issues:</b></h3>
 
         <form action="/projects/<%= project._id %>/filter" method="GET" class="filter-form">
             <div class="form-group">
@@ -439,13 +454,7 @@
                 </ul>
                 <% } %>
 
-                    <div class="button-group">
-                        <form action="/projects/<%= project._id %>/delete" method="POST" class="delete-form">
-                            <button type="submit" class="btn btn-danger">Delete Project</button>
-                        </form>
-                        <a href="/projects/<%= project._id %>/issues/new" class="btn btn-primary">Create Issue</a>
-                        <a href="/" class="btn btn-primary">Back</a>
-                    </div>
+
     </div>
 
 

@@ -13,20 +13,23 @@
 
 <body>
     <header>
+        <h2 class="welcome-heading">Issue Tracker App</h2>
         <nav>
+            
             <div class="nav-left">
-                <h1>Issue Tracker</h1>
+                
                 <a href="/" id="home-button">Home</a>
             </div>
         </nav>
+        <div class="create-button-container">
+            <a href="/project/create" class="create-button">Create Project</a>
+        </div>
     </header>
 
 
-    <div class="create-button-container">
-        <a href="/project/create" class="create-button">Create Project</a>
-    </div>
+    
     <hr>
-    <h2 class="welcome-heading">Issue Tracker App</h2>
+    
 
     <h2>All Projects:</h2>
 
@@ -35,14 +38,14 @@
             <li>
                 <div class="project-header">
                     <strong class="project-title">
-                        <%= project.name %>
+                        Name:<%= project.name %>
                     </strong>
                     <span class="project-author">
-                        <%= project.author %>
+                       <b>Author:</b><%= project.author %>
                     </span>
                 </div>
                 <p class="project-description">
-                    <%= project.description %>
+                    <b>Description:</b><%= project.description %>
                 </p>
                 <a href="/project/<%= project._id %>" class="view-project-button">View Project</a>
             </li>
