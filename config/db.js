@@ -13,17 +13,5 @@ const connectDb = mongoose.connect(process.env.MONGODB_URL)
     console.error("Error connecting to MongoDB:", err);
   });
 
-// // Acquire the connection (to check if it's successful)
-// const db = mongoose.connection;
-
-// // Error handling
-// db.on("error", (err) => {
-//   console.log(err.message);
-// });
-
-// // Once connected, print the success message
-// db.once("open", () => {
-//   console.log("Successfully connected to the database");
-// });
 
 export default connectDb;
